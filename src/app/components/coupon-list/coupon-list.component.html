@@ -1,0 +1,10 @@
+<div *ngFor="let coupon of coupons">
+  <p>{{ coupon.id }}: {{ coupon.titre }}</p>
+  <p>Adresse: {{ coupon.adresse }}, {{ coupon.ville }}, {{ coupon.code_postal }}</p>
+  <p>Prix: {{ coupon.prix }}</p>
+  <p>Conditions: {{ coupon.conditions }}</p>
+  <p>Date de création: {{ coupon.date_creation | date }}</p>
+  <p>Fin de validité: {{ coupon.fin_validite | date }}</p>
+  <p>Commerce: {{ coupon.commerce }}</p>
+  <p>Association: {{ coupon.association }}</p>
+</div>
