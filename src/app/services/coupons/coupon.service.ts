@@ -9,6 +9,7 @@ import {ApiResponse} from '../../models/api-response';
   providedIn: 'root'
 })
 export class CouponService {
+  // Récupère le JSON des coupons de mon backend
   private apiUrl = 'http://localhost:8000/api/coupons'
 
   constructor(private http: HttpClient) { }

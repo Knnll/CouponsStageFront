@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Coupon} from '../../models/coupon';
-import {CouponService} from '../../services/coupons/coupon.service';
+import {Coupon} from '../../../models/coupon';
+import {CouponService} from '../../../services/coupons/coupon.service';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import {AsyncPipe, DatePipe, NgForOf, NgIf, UpperCasePipe} from '@angular/common';
 

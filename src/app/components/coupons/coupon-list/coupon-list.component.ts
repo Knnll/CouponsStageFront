@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Coupon} from '../../models/coupon';
-import {CouponService} from '../../services/coupons/coupon.service';
+import {Coupon} from '../../../models/coupon';
+import {CouponService} from '../../../services/coupons/coupon.service';
 import {AsyncPipe, DatePipe, NgForOf} from '@angular/common';
 import {Router} from '@angular/router';
 
