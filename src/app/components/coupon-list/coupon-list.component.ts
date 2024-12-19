@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Coupon} from '../../models/coupon';
-import {CouponService} from '../../services/coupon.service';
+import {CouponService} from '../../services/coupons/coupon.service';
 import {AsyncPipe, DatePipe, NgForOf} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-coupon-list',
@@ -14,9 +15,11 @@ import {AsyncPipe, DatePipe, NgForOf} from '@angular/common';
   styleUrl: './coupon-list.component.css'
 })
 export class CouponListComponent implements OnInit {
+  @Input() coupon!: Coupon;
   coupons: Coupon[] = [];
 
-  constructor(private couponService: CouponService) {
+  constructor(private couponService: CouponService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -24,6 +27,10 @@ export class CouponListComponent implements OnInit {
       console.log(data);
       this.coupons = data;
     })
+  }
+
+  onViewCoupon(couponId: number) {
+    this.router.navigateByUrl(`coupons/${couponId}`);
   }
 
 }

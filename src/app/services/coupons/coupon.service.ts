@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {Coupon} from '../models/coupon';
-import {ApiResponse} from '../models/api-response';
+import {Coupon} from '../../models/coupon';
+import {ApiResponse} from '../../models/api-response';
 
 @Injectable({
   providedIn: 'root'
@@ -20,4 +20,9 @@ export class CouponService {
       map(response => response.member)
     );
   }
+
+  getCouponById(couponId: number): Observable<Coupon> {
+    return this.http.get<Coupon>(`${this.apiUrl}/${couponId}`);
+  }
+
 }

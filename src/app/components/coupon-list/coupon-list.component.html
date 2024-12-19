@@ -1,4 +1,4 @@
-<div *ngFor="let coupon of coupons">
+<div class="coupon-card" *ngFor="let coupon of coupons">
   <p>{{ coupon.id }}: {{ coupon.titre }}</p>
   <p>Adresse: {{ coupon.adresse }}, {{ coupon.ville }}, {{ coupon.code_postal }}</p>
   <p>Prix: {{ coupon.prix }}</p>
@@ -7,4 +7,5 @@
   <p>Fin de validité: {{ coupon.fin_validite | date }}</p>
   <p>Commerce: {{ coupon.commerce }}</p>
   <p>Association: {{ coupon.association }}</p>
+  <button (click)="onViewCoupon(coupon.id)">Voir +</button>
 </div>

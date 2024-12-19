@@ -1,0 +1,11 @@
+<div class="coupon-card" *ngIf="coupon$ | async as coupon">
+  <a routerLink="/coupons">Retour</a>
+  <h1>{{ coupon.id }}: {{ coupon.titre | uppercase }}</h1>
+  <p>Adresse: {{ coupon.adresse }}, {{ coupon.ville }}, {{ coupon.code_postal }}</p>
+  <p>Prix: {{ coupon.prix }}</p>
+  <p>Conditions: {{ coupon.conditions }}</p>
+  <p>Date de création: {{ coupon.date_creation | date: 'à HH:mm, le d MMMM yyyy' }}</p>
+  <p>Fin de validité: {{ coupon.fin_validite | date: 'à HH:mm, le d MMMM yyyy' }}</p>
+  <p>Commerce: {{ coupon.commerce }}</p>
+  <p>Association: {{ coupon.association }}</p>
+</div>
