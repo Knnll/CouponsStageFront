@@ -4,6 +4,7 @@ import {Coupon} from '../../../models/coupon';
 import {CouponService} from '../../../services/coupons/coupon.service';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import {AsyncPipe, DatePipe, NgForOf, NgIf, UpperCasePipe} from '@angular/common';
+import {PanierService} from '../../../services/panier/panier.service';
 
 @Component({
   selector: 'app-coupon-details',
@@ -21,11 +22,17 @@ export class CouponDetailsComponent implements OnInit {
   coupon$!: Observable<Coupon>
 
   constructor(private couponService: CouponService,
-              private route: ActivatedRoute) {}
+              private route: ActivatedRoute,
+              private panierService: PanierService) {}
 
   ngOnInit() {
     const couponId = +this.route.snapshot.paramMap.get('id')!;
     this.coupon$ = this.couponService.getCouponById(couponId);
+  }
+
+  ajouterAuPanier(coupon: Coupon): void {
+    this.panierService.ajouterAuPanier(coupon);
+    alert('Coupon ajouté au panier !');
   }
 
 }

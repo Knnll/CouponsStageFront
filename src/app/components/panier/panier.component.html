@@ -1,0 +1,13 @@
+<div class="card">
+  <h2>Votre panier</h2>
+  <ul>
+    <li *ngFor="let coupon of panier">
+      {{ coupon.titre }} - {{ coupon.prix }} €
+    </li>
+  </ul>
+  <p>Total : {{ total }} €</p>
+  <div class="payed-button">
+    <a>💸 Valider mon panier !</a>
+  </div>
+</div>
+

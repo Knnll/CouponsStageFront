@@ -8,5 +8,5 @@
   <p><b>Date de création:</b> {{ coupon.date_creation | date: 'le d MMMM yyyy' }}</p>
   <p><b>Fin de validité:</b> {{ coupon.fin_validite | date: 'le d MMMM yyyy' }}</p>
   <p><b>Ce bon soutient l'association:</b> {{ coupon.association.nom }}</p>
-  <button class="button">J'achète ce coupon !</button>
+  <button class="button" (click)="ajouterAuPanier(coupon)"> 🛒 Ajouter au panier</button>
 </div>
