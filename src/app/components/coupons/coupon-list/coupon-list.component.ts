@@ -8,8 +8,7 @@ import {Router} from '@angular/router';
   selector: 'app-coupon-list',
   imports: [
     NgForOf,
-    DatePipe,
-    AsyncPipe
+    DatePipe
   ],
   templateUrl: './coupon-list.component.html',
   styleUrl: './coupon-list.component.css'

@@ -1,11 +1,12 @@
 <div class="coupon-card" *ngIf="coupon$ | async as coupon">
-  <a routerLink="/coupons">Retour</a>
-  <h1>{{ coupon.id }}: {{ coupon.titre | uppercase }}</h1>
-  <p>Adresse: {{ coupon.adresse }}, {{ coupon.ville }}, {{ coupon.code_postal }}</p>
-  <p>Prix: {{ coupon.prix }}</p>
-  <p>Conditions: {{ coupon.conditions }}</p>
-  <p>Date de création: {{ coupon.date_creation | date: 'à HH:mm, le d MMMM yyyy' }}</p>
-  <p>Fin de validité: {{ coupon.fin_validite | date: 'à HH:mm, le d MMMM yyyy' }}</p>
-  <p>Commerce: {{ coupon.commerce }}</p>
-  <p>Association: {{ coupon.association }}</p>
+  <a routerLink="/coupons">⬅</a>
+  <h1>{{ coupon.titre | uppercase }}</h1>
+  <p><b>Commerce:</b> {{ coupon.commerce.nom }}</p>
+  <p><b>Adresse:</b> {{ coupon.adresse }}, {{ coupon.ville }}, {{ coupon.code_postal }}</p>
+  <p><b>Prix:</b> {{ coupon.prix }}€</p>
+  <p><b>Conditions:</b> {{ coupon.conditions }}</p>
+  <p><b>Date de création:</b> {{ coupon.date_creation | date: 'le d MMMM yyyy' }}</p>
+  <p><b>Fin de validité:</b> {{ coupon.fin_validite | date: 'le d MMMM yyyy' }}</p>
+  <p><b>Ce bon soutient l'association:</b> {{ coupon.association.nom }}</p>
+  <button class="button">J'achète ce coupon !</button>
 </div>

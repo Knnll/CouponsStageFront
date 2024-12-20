@@ -1,11 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-accueil',
   imports: [
-    NgOptimizedImage
   ],
   templateUrl: './accueil.component.html',
   styleUrl: './accueil.component.css'

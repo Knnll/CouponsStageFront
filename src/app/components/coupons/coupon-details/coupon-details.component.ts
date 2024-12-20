@@ -9,7 +9,6 @@ import {AsyncPipe, DatePipe, NgForOf, NgIf, UpperCasePipe} from '@angular/common
   selector: 'app-coupon-details',
   imports: [
     DatePipe,
-    NgForOf,
     AsyncPipe,
     NgIf,
     UpperCasePipe,
