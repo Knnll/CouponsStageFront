@@ -1,12 +1,22 @@
-<div class="coupon-card" *ngIf="coupon$ | async as coupon">
-  <a routerLink="/coupons">⬅</a>
-  <h1>{{ coupon.titre | uppercase }}</h1>
-  <p><b>Commerce:</b> {{ coupon.commerce.nom }}</p>
-  <p><b>Adresse:</b> {{ coupon.adresse }}, {{ coupon.ville }}, {{ coupon.code_postal }}</p>
-  <p><b>Prix:</b> {{ coupon.prix }}€</p>
-  <p><b>Conditions:</b> {{ coupon.conditions }}</p>
-  <p><b>Date de création:</b> {{ coupon.date_creation | date: 'le d MMMM yyyy' }}</p>
-  <p><b>Fin de validité:</b> {{ coupon.fin_validite | date: 'le d MMMM yyyy' }}</p>
-  <p><b>Ce bon soutient l'association:</b> {{ coupon.association.nom }}</p>
-  <button class="button" (click)="ajouterAuPanier(coupon)"> 🛒 Ajouter au panier</button>
+<div *ngIf="errorMessage; else couponContent">
+  <p class="error-message">{{ errorMessage }}</p>
 </div>
+
+<ng-template #couponContent>
+  <div *ngIf="coupon$ | async as coupon; else loading">
+    <a routerLink="/coupons">⬅</a>
+    <h1>{{ coupon.titre | uppercase }}</h1>
+    <p><b>Commerce:</b> {{ coupon.commerce.nom }}</p>
+    <p><b>Adresse:</b> {{ coupon.adresse }}, {{ coupon.ville }}, {{ coupon.code_postal }}</p>
+    <p><b>Prix:</b> {{ coupon.prix }}€</p>
+    <p><b>Conditions:</b> {{ coupon.conditions }}</p>
+    <p><b>Date de création:</b> {{ coupon.date_creation | date: 'le d MMMM yyyy' }}</p>
+    <p><b>Fin de validité:</b> {{ coupon.fin_validite | date: 'le d MMMM yyyy' }}</p>
+    <p><b>Ce bon soutient l'association:</b> {{ coupon.association.nom }}</p>
+    <button class="button" (click)="ajouterAuPanier(coupon)"> 🛒 Ajouter au panier</button>
+  </div>
+
+  <ng-template #loading>
+    <p>Chargement des détails du coupon...</p>  <!-- Message ou spinner pendant le chargement -->
+  </ng-template>
+</ng-template>

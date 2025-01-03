@@ -7,7 +7,7 @@ import {NgIf} from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, HeaderComponent, NgIf],
+  imports: [RouterOutlet, HeaderComponent, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

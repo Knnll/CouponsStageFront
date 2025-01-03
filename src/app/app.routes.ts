@@ -4,9 +4,12 @@ import {AccueilComponent} from './components/accueil/accueil.component';
 import {CouponListComponent} from './components/coupons/coupon-list/coupon-list.component';
 import {CouponDetailsComponent} from './components/coupons/coupon-details/coupon-details.component';
 import {PanierComponent} from './components/panier/panier.component';
+import {ConnexionComponent} from './components/connexion/connexion.component';
+
 
 export const routes: Routes = [
-  { path: '', component: AccueilComponent },
+  { path: '', component: ConnexionComponent },
+  { path: 'accueil', component: AccueilComponent },
   { path: 'coupons', component: CouponListComponent },
   { path: 'coupons/:id', component: CouponDetailsComponent },
   { path: 'panier', component: PanierComponent }
