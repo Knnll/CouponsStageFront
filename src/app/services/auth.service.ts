@@ -1,39 +1,46 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private token: string = '';
   private apiUrl = 'http://localhost:8000/api';
 
   constructor(private http: HttpClient) {}
 
+  // Connexion et stockage du token dans localStorage
   login(identifiants: { username: string; password: string }): Observable<any> {
     return this.http.post<{ token: string }>(`${this.apiUrl}/login_check`, identifiants).pipe(
       tap(response => {
-        this.token = response.token;
-        localStorage.setItem('token', this.token);  // Assure-toi que le token est stocké
+        const token = response.token;
+        this.setToken(token);  // Utilise une méthode pour stocker le token
       })
     );
   }
 
+  // Récupère le token depuis le localStorage (ou retourne une chaîne vide si non présent)
   getToken(): string {
-    // Récupère le token depuis le localStorage (ou un autre mécanisme de stockage que tu utilises)
-    return this.token || localStorage.getItem('token') || '';
+    return localStorage.getItem('token') || '';  // Toujours prioriser localStorage
   }
 
-
+  // Envoie le token dans les headers
   getHeaders(): HttpHeaders {
-    // Vérifie si le token existe avant de l'envoyer
-    if (!this.token) {
-      // Retourne un en-tête vide ou génère une erreur
+    const token = this.getToken();
+    if (!token) {
       throw new Error('Token is not available');
     }
-    return new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+    return new HttpHeaders().set('Authorization', `Bearer ${token}`);
   }
 
+  // Stocke le token dans le localStorage
+  private setToken(token: string): void {
+    localStorage.setItem('token', token);  // Stocke le token dans localStorage
+  }
 
+  // Supprime le token (pour la déconnexion)
+  logout(): void {
+    localStorage.removeItem('token');
+  }
 }
