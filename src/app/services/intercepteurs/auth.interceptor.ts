@@ -13,6 +13,7 @@ export const jwtInterceptor: HttpInterceptorFn = (req, next) => {
         Authorization: `Bearer ${token}`
       }
     });
+    console.log('Header récupéré avec l\'intercepteur');
     return next(clonedReq);
   } else {
     return next(req);

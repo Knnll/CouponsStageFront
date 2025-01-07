@@ -14,43 +14,38 @@
 
 /* Container du formulaire */
 .connexion-container {
-  max-width: 400px; /* Largeur fixe du formulaire */
+  max-width: 400px;
   width: 100%;
-  height: auto; /* Permet de s'ajuster à la hauteur du contenu */
-  min-height: 400px; /* Hauteur minimale pour que le formulaire ait plus de place */
-  margin: 0 auto; /* Centrer le container horizontalement */
+  height: auto;
+  margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: white; /* Fond blanc */
+  background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centrer verticalement */
-  align-items: center; /* Centrer horizontalement */
-  text-align: center; /* Centrer le texte dans les éléments */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-/* Style du titre */
 .connexion-container h2 {
   font-size: 28px;
   color: #333;
   margin-bottom: 20px;
 }
 
-/* Style du formulaire */
 .connexion-container form {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 
-/* Espacement entre chaque champ de formulaire */
 .connexion-container form div {
   margin-bottom: 20px;
 }
 
-/* Style des labels */
 .connexion-container form label {
   display: block;
   margin-bottom: 8px;
@@ -58,7 +53,6 @@
   color: #555;
 }
 
-/* Style des champs input */
 .connexion-container form input {
   width: 100%;
   padding: 12px;
@@ -70,18 +64,17 @@
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Effet au focus sur les champs input */
 .connexion-container form input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  border-color: #514fba;
+  box-shadow: 0 0 5px rgba(64, 51, 121, 0.5);
   outline: none;
 }
 
-/* Style du bouton */
 .connexion-container form button {
   padding: 12px 20px;
-  background-color: #007bff;
+  background-color: #514fba;
   color: white;
+  box-shadow: 0 4px 8px rgba(64, 51, 121, 0.3);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -90,14 +83,47 @@
   transition: background-color 0.3s ease;
 }
 
-/* Effet au survol du bouton */
 .connexion-container form button:hover {
-  background-color: #0056b3;
+  background-color: #514fba;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(64, 51, 121, 0.4);
 }
 
-/* Style du message d'erreur */
 .error-message {
   color: red;
   margin-top: 15px;
   font-size: 14px;
 }
+
+.sign-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.sign-in-btn {
+  padding: 12px 20px;
+  background-color: #514fba;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 8px rgba(64, 51, 121, 0.3)
+}
+
+.sign-in-btn:hover {
+  background-color: #514fba;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(64, 51, 121, 0.4);
+}
+
+.sign-in-btn:active {
+  transform: translateY(2px);
+}
+

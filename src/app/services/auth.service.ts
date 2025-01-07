@@ -20,6 +20,11 @@ export class AuthService {
     );
   }
 
+  getUserInfo(): Observable<{ prenom: string }> {
+    const headers = this.getHeaders();
+    return this.http.get<{ prenom: string }>(`${this.apiUrl}/acheteurs`);
+  }
+
   // Récupère le token depuis le localStorage (ou retourne une chaîne vide si non présent)
   getToken(): string {
     return localStorage.getItem('token') || '';  // Toujours prioriser localStorage
@@ -29,7 +34,7 @@ export class AuthService {
   getHeaders(): HttpHeaders {
     const token = this.getToken();
     if (!token) {
-      throw new Error('Token is not available');
+      throw new Error('Le Token n\' est pas valide');
     }
     return new HttpHeaders().set('Authorization', `Bearer ${token}`);
   }
