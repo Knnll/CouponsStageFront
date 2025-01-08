@@ -2,32 +2,100 @@
   box-sizing: border-box;
   width: 50%;
   margin: 20px auto;
-  padding: 10px 30px;
+  padding: 20px;
   box-shadow: lightgray 4px 4px 20px;
-  h1 {
-    margin-bottom: 0;
-    text-align: center;
-  }
-  p {
-    font-weight: 300;
-    font-size: 16px;
-  }
-  a {
-    display: block;
-    margin: 5px;
-    padding: 10px;
-    font-size: 16px;
-    background-color: #514fba;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  .a:hover {
-    background-color: #514fba;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(64, 51, 121, 0.4);
-  }
-
+  border-radius: 8px;
+  text-align: center;
+  background-color: #fff;
 }
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrer verticalement */
+  align-items: center;    /* Centrer horizontalement */
+  height: 100%;           /* Prend toute la hauteur disponible */
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #514fba; /* Couleur de ta charte graphique */
+}
+
+p {
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #514fba;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: lightgray;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #3d3ca8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(64, 51, 121, 0.4);
+}
+
+.coupon-item {
+  display: flex;
+  justify-content: space-between;  /* Espace entre les éléments */
+  align-items: center;            /* Aligne verticalement au centre */
+  padding: 10px 0;                /* Ajoute un peu d'espace vertical */
+  border-bottom: 1px solid #ddd;  /* Séparation entre les items */
+}
+
+.coupon-info-suppr {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;                    /* Prend toute la largeur disponible */
+  align-items: center;            /* Aligner les éléments sur la même ligne */
+}
+
+.coupon-info-suppr span {
+  font-size: 16px;
+  flex-grow: 1;                   /* Le texte prend toute la largeur */
+}
+
+.remove-button {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 14px;
+  margin-left: 20px;               /* Un peu d'espace entre le texte et le bouton */
+}
+
+.remove-button:hover {
+  background-color: #ff7875;
+  transform: scale(1.05);
+}
+
+

@@ -1,0 +1,10 @@
+<div *ngIf="isLoading; else success">
+  <p>Paiement en cours...</p> <!-- Message pendant le faux paiement -->
+</div>
+
+<ng-template #success>
+  <div class="coupon-succes">
+    <h1>Coupons achetés avec succès !</h1>
+    <p>Merci pour votre achat.</p>
+  </div>
+</ng-template>
