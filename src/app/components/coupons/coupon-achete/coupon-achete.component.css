@@ -5,3 +5,64 @@
     color: #4caf50;
   }
 }
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.card {
+  box-sizing: border-box;
+  width: 50%;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: lightgray 4px 4px 20px;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #fff;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #514fba;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 10px;
+}
+
+.coupon-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.coupon-item p {
+  margin: 5px 0;
+}
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #514fba;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3d3ca8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(64, 51, 121, 0.4);
+}

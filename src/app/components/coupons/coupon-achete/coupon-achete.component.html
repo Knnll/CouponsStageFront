@@ -1,10 +1,23 @@
-<div *ngIf="isLoading; else success">
-  <p>Paiement en cours...</p> <!-- Message pendant le faux paiement -->
+<div *ngIf="isLoading; else success" class="center-content">
+  <div class="card">
+    <p>Paiement en cours...</p> <!-- Message pendant le faux paiement -->
+  </div>
 </div>
 
 <ng-template #success>
-  <div class="coupon-succes">
-    <h1>Coupons achetés avec succès !</h1>
-    <p>Merci pour votre achat.</p>
+  <div class="center-content">
+    <div class="card coupon-succes">
+      <h1>Coupons achetés avec succès !</h1>
+      <div *ngFor="let coupon of dernierAchat">
+        <div class="coupon-item">
+          <div>
+            <p><strong>{{ coupon.titre }}</strong> - Valable jusqu'au <strong>{{ coupon.fin_validite | date: 'dd/MM/yyyy' }}</strong></p>
+            <p>À <strong>{{ coupon.ville }}</strong>.</p>
+            <p>Vous avez fait un don de <strong>{{ coupon.prix }} €</strong> à l'association : <strong>{{ coupon.association.nom }}</strong>.</p>
+          </div>
+        </div>
+      </div>
+      <button>Voir les coupons dans mon portefeuille</button>
+    </div>
   </div>
 </ng-template>

@@ -30,6 +30,12 @@ export class PanierComponent implements OnInit {
     // Simuler un paiment car c'est pour la démo, et je ne sais pas comment faire autrement
     console.log('Paiement en cours...');
 
+    // Simuler le dernier achat
+    if (this.panier.length > 0) {
+      const dernierAchat = this.panier;
+      this.panierService.setDernierAchat(dernierAchat);
+    }
+
     // Une fois le panier validé, on supprime les coupons
     this.panierService.validerPanier();
 
