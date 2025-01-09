@@ -15,13 +15,17 @@ import {Router, RouterLink} from '@angular/router';
   styleUrl: './panier.component.css'
 })
 export class PanierComponent implements OnInit {
+  // Tableau qui stocke les coupons dans le panier (actuellemtn)
   panier: Coupon[] = [];
+  // On commence le panier à une valeur de 0 euros
   total: number = 0;
 
   constructor(private panierService: PanierService,
               private router: Router) {}
 
   ngOnInit() {
+    // On fait appel au service pour réupérer les deux méthodes pour
+    // Récupérer la liste des coupons actuels et le total du panier avec les prix des coupons
     this.panier = this.panierService.getPanier();
     this.total = this.panierService.getTotal();
   }
@@ -44,8 +48,11 @@ export class PanierComponent implements OnInit {
   }
 
   supprimerDuPanier(coupon: Coupon) {
+    // On supprime du panier un coupon spécifique que l'utilisateur ne veut plus acheter
     this.panierService.supprimerDuPanier(coupon);
+    // On met à jour la liste des coupons dans le panier après la suppression d'un autre coupon
     this.panier = this.panierService.getPanier();
+    // On met à jour le prix du panier sans le coupon qui a été supprimé
     this.total = this.panierService.getTotal();
   }
 }

@@ -43,6 +43,7 @@ export class CouponListComponent implements OnInit {
   }
 
   onViewCoupon(couponId: number) {
+    // Naviguer vers l'id du coupon qui a été choisi pour voir les détails
     this.router.navigateByUrl(`coupons/${couponId}`);
   }
 

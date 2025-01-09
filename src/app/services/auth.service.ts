@@ -15,7 +15,8 @@ export class AuthService {
     return this.http.post<{ token: string }>(`${this.apiUrl}/login_check`, identifiants).pipe(
       tap(response => {
         const token = response.token;
-        this.setToken(token);  // Utilise une méthode pour stocker le token
+        // Utilise une méthode pour stocker le token
+        this.setToken(token);
       })
     );
   }
@@ -27,7 +28,7 @@ export class AuthService {
 
   // Récupère le token depuis le localStorage (ou retourne une chaîne vide si non présent)
   getToken(): string {
-    return localStorage.getItem('token') || '';  // Toujours prioriser localStorage
+    return localStorage.getItem('token') || '';
   }
 
   // Envoie le token dans les headers
@@ -41,7 +42,8 @@ export class AuthService {
 
   // Stocke le token dans le localStorage
   private setToken(token: string): void {
-    localStorage.setItem('token', token);  // Stocke le token dans localStorage
+    // Stocke le token dans localStorage
+    localStorage.setItem('token', token);
   }
 
   // Supprime le token (pour la déconnexion)

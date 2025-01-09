@@ -14,22 +14,24 @@ import {NgIf} from '@angular/common';
   styleUrls: ['./connexion.component.css']
 })
 export class ConnexionComponent {
-  // Propriétés
-  loginData = { username: '', password: '' }; // Contient les données du formulaire
-  errorMessage: string | null = null; // Pour afficher les messages d'erreur
+  // On veut ces données du formulaire
+  loginData = { username: '', password: '' };
+  // Pour afficher les messages d'erreur (au début il n'y en a pas)
+  errorMessage: string | null = null;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   // Méthode appelée lors de la soumission du formulaire
   onSubmit() {
-    this.errorMessage = null; // Réinitialiser le message d'erreur
+    this.errorMessage = null;
+    // Appel à l'intercepteur authService
     this.authService.login(this.loginData).subscribe({
       next: () => {
         // Rediriger vers la page principale après connexion réussie
         this.router.navigateByUrl('/accueil');
       },
       error: (err) => {
-        // Gérer les erreurs (ex. : mauvais identifiants)
+        // Gérer les erreurs (ex: mauvais identifiants etc)
         this.errorMessage = 'Connexion échouée : vérifiez vos identifiants.';
       }
     });

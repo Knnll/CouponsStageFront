@@ -15,7 +15,9 @@ import {PanierService} from '../../../services/panier/panier.service';
   styleUrl: './coupon-achete.component.css'
 })
 export class CouponAcheteComponent implements OnInit {
+  // variable pour simuler un faux chargement
   isLoading = true;
+  // Tableau pour stocekr les coupons achetés
   dernierAchat: Coupon[] = [];
 
   constructor(private panierService: PanierService) {}
@@ -24,8 +26,9 @@ export class CouponAcheteComponent implements OnInit {
     setTimeout(() => {
       // Simulation d'un délais pour afficher 'Paiement en cours' avant le h1 et le p
       this.isLoading = false;
+      // Appel du service pour récupérer les coupons achetés
       this.dernierAchat = this.panierService.getDernierAchat();
-    }, 3000); // en millisecondes
+    }, 3000); // en millisecondes (donc, 3 secondes)
   }
 
 }
