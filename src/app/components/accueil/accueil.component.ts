@@ -20,13 +20,16 @@ export class AccueilComponent implements OnInit {
       return;
     }
 
+    /*
     // Méthode qui donne le prénom de la personne connectée au site
     this.authService.getUserInfo().subscribe({
       next: (data) => {
         this.prenom = data.prenom;
       }
     });
+     */
   }
+
 
   onContinue(): void {
     // Méthode qui amène à la liste des coupons
