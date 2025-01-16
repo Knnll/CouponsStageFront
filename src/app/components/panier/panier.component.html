@@ -13,7 +13,7 @@
       </li>
     </ul>
     <p>Total : {{ total }}€</p>
-    <button [disabled]="!panier.length" (click)="payer()">Acheter</button>
+    <button [disabled]="!panier.length" (click)="acheterCoupon()">Acheter</button>
   </div>
 
   <ng-template #panierVide>

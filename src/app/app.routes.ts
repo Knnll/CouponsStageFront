@@ -6,6 +6,7 @@ import {CouponDetailsComponent} from './components/coupons/coupon-details/coupon
 import {PanierComponent} from './components/panier/panier.component';
 import {ConnexionComponent} from './components/connexion/connexion.component';
 import {CouponAcheteComponent} from './components/coupons/coupon-achete/coupon-achete.component';
+import {MonPortefeuilleComponent} from './components/mon-portefeuille/mon-portefeuille.component';
 
 
 export const routes: Routes = [
@@ -14,7 +15,8 @@ export const routes: Routes = [
   { path: 'coupons', component: CouponListComponent },
   { path: 'coupons/:id', component: CouponDetailsComponent },
   { path: 'panier', component: PanierComponent },
-  { path: 'coupon-achete', component: CouponAcheteComponent }
+  { path: 'coupon-achete', component: CouponAcheteComponent },
+  { path: 'mon-portefeuille', component: MonPortefeuilleComponent }
 ];
 
 @NgModule({

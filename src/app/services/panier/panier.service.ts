@@ -7,6 +7,7 @@ import {Coupon} from '../../models/coupon';
 export class PanierService {
   private panier: Coupon[] = [];
   private panierKey = 'panier';
+  private portefeuilleKey = 'portefeuille';
   // Puisque c'est une démo avant tout, je veux stocker temporairement les informations du dernier achat
   // On met à NULL au début car un coupon peut exister sans avoir été acheté
   private dernierAchat: Coupon[] = [];
@@ -72,6 +73,22 @@ export class PanierService {
     console.log('Panier validé et vidé');
   }
 
+  acheterCoupon(coupon: Coupon) {
+    let portefeuille = this.getPortefeuille();
+
+    portefeuille.push(coupon);
+    localStorage.setItem(this.portefeuilleKey, JSON.stringify(portefeuille));
+
+    this.supprimerDuPanier(coupon);
+
+    this.setDernierAchat([coupon]);
+  }
+
+  getPortefeuille(): Coupon[] {
+    const portefeuille = localStorage.getItem(this.portefeuilleKey);
+    return portefeuille ? JSON.parse(portefeuille): [];
+  }
+
   getDernierAchat(): Coupon[] {
     // On retourne ce ui est stocké dans dernierAchat et c'est NULL si aucun achat n'a été fait
     return this.dernierAchat;
@@ -80,7 +97,6 @@ export class PanierService {
   setDernierAchat(coupon: Coupon[]): void {
     // On met à jour la propriété dernierAchat avec les infos du coupon acheté
     this.dernierAchat = coupon;
-    // ATTENTION si la page est rafraîchie, le coupon acheté disparaît car on n'utilise pas le localStorage
+    localStorage.setItem('dernierAchat', JSON.stringify(coupon));
   }
-
 }

@@ -30,20 +30,16 @@ export class PanierComponent implements OnInit {
     this.total = this.panierService.getTotal();
   }
 
-  payer() {
+  acheterCoupon() {
     // Simuler un paiment car c'est pour la démo, et je ne sais pas comment faire autrement
     console.log('Paiement en cours...');
 
-    // Simuler le dernier achat
-    if (this.panier.length > 0) {
-      const dernierAchat = this.panier;
-      this.panierService.setDernierAchat(dernierAchat);
-    }
+    // appeler la méthode du service
+    this.panier.forEach(coupon => {
+      this.panierService.acheterCoupon(coupon)
+    })
 
-    // Une fois le panier validé, on supprime les coupons
-    this.panierService.validerPanier();
-
-    // Redirigé vers la page de paiement accepté
+    // Rediriger vers la page de paiement accepté
     this.router.navigate(['/coupon-achete']);
   }
 
