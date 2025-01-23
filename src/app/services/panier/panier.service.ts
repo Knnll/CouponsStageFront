@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Coupon} from '../../models/coupon';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +13,9 @@ export class PanierService {
   // Puisque c'est une démo avant tout, je veux stocker temporairement les informations du dernier achat
   // On met à NULL au début car un coupon peut exister sans avoir été acheté
   private dernierAchat: Coupon[] = [];
+  private apiUrl = 'http://localhost:8000/api';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getPanier(): Coupon[] {
     const panier = localStorage.getItem(this.panierKey);
@@ -73,16 +76,28 @@ export class PanierService {
     console.log('Panier validé et vidé');
   }
 
-  acheterCoupon(coupon: Coupon) {
-    let portefeuille = this.getPortefeuille();
-
-    portefeuille.push(coupon);
-    localStorage.setItem(this.portefeuilleKey, JSON.stringify(portefeuille));
-
-    this.supprimerDuPanier(coupon);
-
-    this.setDernierAchat([coupon]);
+  acheterCouponAPI(couponId: number): Observable<any> {
+    return this.http.post(`${this.apiUrl}/coupons/acheter`, { coupon_id: couponId });
   }
+
+  acheterCoupon(coupon: Coupon): void {
+    this.acheterCouponAPI(coupon.id).subscribe({
+      next: (response) => {
+        console.log('Coupon acheté avec succès :', response);
+
+        // Mise à jour locale après succès
+        let portefeuille = this.getPortefeuille();
+        portefeuille.push(coupon);
+        localStorage.setItem(this.portefeuilleKey, JSON.stringify(portefeuille));
+        this.supprimerDuPanier(coupon);
+        this.setDernierAchat([coupon]);
+      },
+      error: (err) => {
+        console.error('Erreur lors de l\'achat du coupon :', err);
+      }
+    });
+  }
+
 
   getPortefeuille(): Coupon[] {
     const portefeuille = localStorage.getItem(this.portefeuilleKey);
