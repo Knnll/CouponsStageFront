@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import {HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withInterceptors} from '@angular/common/http';  // Nécessaire pour les requêtes HTTP
+import { provideHttpClient, withInterceptors} from '@angular/common/http';  // Nécessaire pour les requêtes HTTP
 import { CouponListComponent } from './components/coupons/coupon-list/coupon-list.component';
 import {QRCodeComponent} from 'angularx-qrcode';
 import {jwtInterceptor} from './services/intercepteurs/auth.interceptor';

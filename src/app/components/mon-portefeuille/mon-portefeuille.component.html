@@ -1,15 +1,3 @@
-<!-- Affichage du dernier achat -->
-<div *ngIf="dernierAchat.length > 0">
-  <h2>Derniers achats</h2>
-  <div *ngFor="let coupon of dernierAchat">
-    <div class="coupon">
-      <h3>{{ coupon.titre }}</h3>
-      <p>{{ coupon.conditions }}</p>
-      <p>Prix: {{ coupon.prix }}</p>
-    </div>
-  </div>
-</div>
-
 <!-- Affichage du portefeuille -->
 <div *ngIf="portefeuille.length === 0">
   <p>Aucun coupon acheté pour l'instant.</p>

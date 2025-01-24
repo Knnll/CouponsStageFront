@@ -10,6 +10,7 @@ export class Coupon {
   date_creation!: Date;
   fin_validite!: Date;
   QR_code!: string;
+  isAchete?: boolean;
   acheteur?: any;
   commerce?: any;
   association?: any;
@@ -26,6 +27,7 @@ export class Coupon {
     date_creation: Date,
     fin_validite: Date,
     QR_code:  string,
+    isAchete: boolean,
     acheteur?: any,
     commerce?: any,
     association?: any
@@ -40,6 +42,7 @@ export class Coupon {
     this.date_creation = date_creation;
     this.fin_validite = fin_validite;
     this.QR_code = QR_code;
+    this.isAchete = isAchete;
     this.acheteur = acheteur;
     this.commerce = commerce;
     this.association = association;

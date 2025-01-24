@@ -14,18 +14,12 @@ import {NgForOf, NgIf} from '@angular/common';
 })
 export class MonPortefeuilleComponent implements OnInit {
   portefeuille: Coupon[] = [];
-  dernierAchat: Coupon[] = [];
+  //dernierAchat: Coupon[] = [];
 
   constructor(private panierService: PanierService) {}
 
   ngOnInit() {
     this.portefeuille = this.panierService.getPortefeuille();
-    this.dernierAchat = this.panierService.getDernierAchat();
+    //this.dernierAchat = this.panierService.getDernierAchat();
   }
-
-  getDernierAchat(): Coupon[] {
-    const dernierAchat = localStorage.getItem('dernierAchat');
-    return dernierAchat ? JSON.parse(dernierAchat) : [];
-  }
-
 }

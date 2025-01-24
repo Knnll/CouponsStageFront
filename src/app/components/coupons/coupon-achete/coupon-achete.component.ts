@@ -8,7 +8,6 @@ import {Router, RouterLink} from '@angular/router';
   selector: 'app-coupon-achete',
   imports: [
     NgIf,
-    CurrencyPipe,
     DatePipe,
     NgForOf,
     RouterLink
