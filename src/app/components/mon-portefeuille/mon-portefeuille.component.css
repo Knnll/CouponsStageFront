@@ -1,14 +1,14 @@
-/* Style général de la section portefeuille */
 .portefeuille {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin: 20px auto;
+  margin: 50px auto;
+  width: 100%;
   max-width: 800px;
   font-family: Arial, sans-serif;
 }
 
-/* Message "aucun coupon" */
 .portefeuille p {
   font-size: 18px;
   color: #666;
@@ -16,27 +16,24 @@
   margin: 20px 0;
 }
 
-/* Carte individuelle pour chaque coupon */
 .coupon {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  width: 50%;
+  margin: 20px auto;
   padding: 20px;
-  margin: 10px 0;
-  width: 100%;
+  box-shadow: 4px 4px 20px lightgray;
+  border-radius: 8px;
+  text-align: center;
+  background-color: #fff;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Titre du coupon */
 .coupon h3 {
-  font-size: 22px;
+  font-size: 24px;
   color: #514fba;
-  margin-bottom: 10px;
-  text-align: left;
+  margin-bottom: 15px;
 }
 
-/* Texte des conditions */
 .coupon p {
   font-size: 16px;
   color: #333;
@@ -44,15 +41,42 @@
   line-height: 1.5;
 }
 
-/* Prix du coupon */
 .coupon p:last-of-type {
   font-weight: bold;
   color: #4caf50;
-  text-align: right;
 }
 
-/* Animation au survol */
 .coupon:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.qr-code {
+  margin: 20px auto;
+  display: block;
+  text-align: center;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #514fba;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3d3ca8;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(64, 51, 121, 0.4);
+}
+
+qr-code {
+  margin: 10px auto;
+  display: block;
+  text-align: center;
 }

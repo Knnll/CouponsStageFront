@@ -8,6 +8,7 @@ import {jwtInterceptor} from './services/intercepteurs/auth.interceptor';
 import {AppRoutingModule} from './app.routes';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
+import {QRCodeModule} from 'angular2-qrcode';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {RouterModule} from '@angular/router';
     BrowserModule,
     CouponListComponent,
     QRCodeComponent,
+    QRCodeModule,
     AppRoutingModule,
     RouterModule,
     FormsModule

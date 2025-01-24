@@ -1,12 +1,19 @@
-<!-- Affichage du portefeuille -->
-<div class="portefeuille">
-  <div *ngIf="portefeuille.length === 0">
+<div class="background-image">
+  <div class="portefeuille" *ngIf="portefeuille.length === 0">
     <p>Aucun coupon acheté pour l'instant.</p>
   </div>
 
-  <div *ngFor="let coupon of portefeuille" class="coupon">
-    <h3>{{ coupon.titre }}</h3>
-    <p>{{ coupon.conditions }}</p>
-    <p>Prix: {{ coupon.prix }} €</p>
+  <div class="portefeuille" *ngIf="portefeuille.length > 0">
+    <div *ngFor="let coupon of portefeuille" class="coupon">
+      <h3>{{ coupon.titre }}</h3>
+      <p>A utiliser chez: {{ coupon.commerce.nom }}</p>
+      <p>{{ coupon.conditions }}</p>
+      <p>Grâce à cet achat, vous avez fait un don de {{ coupon.prix }} €
+        à l'association: {{coupon.association.nom }}</p>
+      <p>Valable jusqu'au: {{ coupon.fin_validite | date: 'le d MMMM yyyy'}}</p>
+
+      <!-- QR Code pour les coupons achetés -->
+      <qrcode [qrdata]="generateQRCodeValue(coupon)" size="150"></qrcode>
+    </div>
   </div>
 </div>
