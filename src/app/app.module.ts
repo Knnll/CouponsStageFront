@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { provideHttpClient, withInterceptors} from '@angular/common/http';  // Nécessaire pour les requêtes HTTP
+import { provideHttpClient, withInterceptors} from '@angular/common/http';
 import { CouponListComponent } from './components/coupons/coupon-list/coupon-list.component';
-import {QRCodeComponent} from 'angularx-qrcode';
 import {jwtInterceptor} from './services/intercepteurs/auth.interceptor';
 import {AppRoutingModule} from './app.routes';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
+import {QRCodeModule} from 'angular2-qrcode';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import {RouterModule} from '@angular/router';
   imports: [
     BrowserModule,
     CouponListComponent,
-    QRCodeComponent,
+    QRCodeModule,
     AppRoutingModule,
     RouterModule,
     FormsModule
