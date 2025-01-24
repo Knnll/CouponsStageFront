@@ -17,7 +17,7 @@ export class PanierService {
   private portefeuilleKey = 'portefeuille';
 
   // Derniers coupons achetés
-  //private dernierAchat: Coupon[] = [];
+  private dernierAchat: Coupon[] = [];
 
   // URL de l'API backend
   private apiUrl = 'http://localhost:8000/api';
@@ -68,7 +68,7 @@ export class PanierService {
           localStorage.setItem(this.portefeuilleKey, JSON.stringify(this.portefeuille)); // Met à jour le stockage
         }
 
-        //this.setDernierAchat([coupon]); // Met à jour le dernier achat
+        this.setDernierAchat([coupon]); // Met à jour le dernier achat
       },
       error: (err) => {
         console.error("Erreur lors de l'achat :", err);
@@ -88,7 +88,7 @@ export class PanierService {
 
 
   // Récupère le dernier achat (s'il est stocké)
-  /*getDernierAchat(): Coupon[] {
+  getDernierAchat(): Coupon[] {
     return this.dernierAchat;
   }
 
@@ -96,5 +96,4 @@ export class PanierService {
   setDernierAchat(coupons: Coupon[]): void {
     this.dernierAchat = coupons;
   }
-   */
 }

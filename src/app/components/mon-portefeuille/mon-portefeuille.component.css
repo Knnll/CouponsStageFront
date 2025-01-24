@@ -1,0 +1,58 @@
+/* Style général de la section portefeuille */
+.portefeuille {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 800px;
+  font-family: Arial, sans-serif;
+}
+
+/* Message "aucun coupon" */
+.portefeuille p {
+  font-size: 18px;
+  color: #666;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Carte individuelle pour chaque coupon */
+.coupon {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px 0;
+  width: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Titre du coupon */
+.coupon h3 {
+  font-size: 22px;
+  color: #514fba;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+/* Texte des conditions */
+.coupon p {
+  font-size: 16px;
+  color: #333;
+  margin: 5px 0;
+  line-height: 1.5;
+}
+
+/* Prix du coupon */
+.coupon p:last-of-type {
+  font-weight: bold;
+  color: #4caf50;
+  text-align: right;
+}
+
+/* Animation au survol */
+.coupon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}

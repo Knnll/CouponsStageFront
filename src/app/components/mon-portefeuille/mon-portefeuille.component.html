@@ -1,12 +1,12 @@
 <!-- Affichage du portefeuille -->
-<div *ngIf="portefeuille.length === 0">
-  <p>Aucun coupon acheté pour l'instant.</p>
-</div>
+<div class="portefeuille">
+  <div *ngIf="portefeuille.length === 0">
+    <p>Aucun coupon acheté pour l'instant.</p>
+  </div>
 
-<div *ngFor="let coupon of portefeuille">
-  <div class="coupon">
+  <div *ngFor="let coupon of portefeuille" class="coupon">
     <h3>{{ coupon.titre }}</h3>
     <p>{{ coupon.conditions }}</p>
-    <p>Prix: {{ coupon.prix }}</p>
+    <p>Prix: {{ coupon.prix }} €</p>
   </div>
 </div>
