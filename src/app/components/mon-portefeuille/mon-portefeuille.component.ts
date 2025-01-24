@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Coupon} from '../../models/coupon';
 import {PanierService} from '../../services/panier/panier.service';
 import {DatePipe, NgForOf, NgIf} from '@angular/common';
-import {QrCodeComponent} from 'ng-qrcode';
 import {QRCodeComponent} from 'angularx-qrcode';
 
 @Component({
@@ -10,7 +9,6 @@ import {QRCodeComponent} from 'angularx-qrcode';
   imports: [
     NgIf,
     NgForOf,
-    QrCodeComponent,
     QRCodeComponent,
     DatePipe
   ],
@@ -28,9 +26,8 @@ export class MonPortefeuilleComponent implements OnInit {
     //this.dernierAchat = this.panierService.getDernierAchat();
   }
 
-  // Méthode qui gère la création d'un QR code
+  // Méthode pour créer un QR code avec angular2-qrcode
   generateQRCodeValue(coupon: any): string {
     return `Coupon ID: ${coupon.id}, Titre: ${coupon.titre}, Prix: ${coupon.prix} €`;
   }
-
 }
