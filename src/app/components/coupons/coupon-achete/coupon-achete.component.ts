@@ -30,7 +30,7 @@ export class CouponAcheteComponent implements OnInit {
       this.isLoading = false;
       // Appel du service pour récupérer les coupons achetés
       this.dernierAchat = this.panierService.getDernierAchat();
-    }, 3000); // en millisecondes (donc, 3 secondes)
+    }, 10000); // en millisecondes (donc, 10 secondes)
   }
 
   voirPortefeuille() {
